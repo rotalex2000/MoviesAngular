@@ -10,7 +10,7 @@ using MoviesAngular.Models;
 
 namespace MoviesAngular.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class MoviesController : ControllerBase
     {
@@ -45,13 +45,8 @@ namespace MoviesAngular.Controllers
         // PUT: api/Movies/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMovie(Guid id, Movie movie)
+        public async Task<IActionResult> PutMovie(Movie movie)
         {
-            if (id != movie.Id)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(movie).State = EntityState.Modified;
 
             try
@@ -60,7 +55,7 @@ namespace MoviesAngular.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MovieExists(id))
+                if (!MovieExists(movie.Id))
                 {
                     return NotFound();
                 }

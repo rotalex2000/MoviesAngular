@@ -2,6 +2,10 @@
 
 <p>This is a list of movies from the database.</p>
 
+<button class="btn btn-primary" [routerLink]="['/movies-add']">Add movie</button>
+
+<br /><br />
+
 <p *ngIf="!movies"><em>Loading...</em></p>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies">
@@ -9,12 +13,18 @@
     <tr>
       <th>Title</th>
       <th>Genre</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let movie of movies">
       <td>{{ movie.title }}</td>
       <td>{{ movie.genre }}</td>
+      <td>
+        <button type="button" class="btn btn-primary mr-2" [routerLink]="['/movies', movie.id]">Details</button>
+        <button type="button" class="btn btn-info mr-2" [routerLink]="['/movies/update', movie.id]">Update</button>
+        <button type="button" class="btn btn-danger mr-2" (click)="deleteMovie(movie.id)">Delete</button>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -1,0 +1,10 @@
+<p *ngIf="!movie"><em>Loading...</em></p>
+
+<div *ngIf="movie">
+  <h1 id="tableLabel">{{ movie.title }}</h1>
+
+  <p>These are the details of the movie {{ movie.title }}.</p>
+
+  <p>Title: <strong>{{ movie.title }}</strong></p>
+  <p>Genre: <strong>{{ movie.genre }}</strong></p>
+</div>
