@@ -6,9 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MoviesDetailsComponent } from './movies/movies-details.component';
 import { MoviesAddEditComponent } from './movies/movies-add-edit.component';
@@ -18,9 +15,6 @@ import { MoviesAddEditComponent } from './movies/movies-add-edit.component';
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     MoviesComponent,
     MoviesDetailsComponent,
     MoviesAddEditComponent,
@@ -30,9 +24,7 @@ import { MoviesAddEditComponent } from './movies/movies-add-edit.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: MoviesComponent, pathMatch: 'full' },
       { path: 'movies', component: MoviesComponent },
       { path: 'movies/:id', component: MoviesDetailsComponent },
       { path: 'movies-add', component: MoviesAddEditComponent },
